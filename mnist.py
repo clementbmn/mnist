@@ -25,8 +25,8 @@ op = optimizer.minimize(loss)
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
-    for i in range(1000):
-        get_next_images, get_next_labels = mnist.train.next_batch(1000)
+    for i in range(100):
+        get_next_images, get_next_labels = mnist.train.next_batch(100)
         sess.run(loss, feed_dict={entries: get_next_images, labels: get_next_labels})
         sess.run(op, feed_dict={entries: get_next_images, labels: get_next_labels})
     outs = sess.run(tf.sigmoid(outs), feed_dict={entries: get_test_images})
