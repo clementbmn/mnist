@@ -29,16 +29,16 @@ with tf.Session() as sess:
         get_next_images, get_next_labels = mnist.train.next_batch(5000)
         sess.run(loss, feed_dict={entries: get_next_images, labels: get_next_labels})
         sess.run(op, feed_dict={entries: get_next_images, labels: get_next_labels})
-    outs = sess.run(tf.sigmoid(outs), feed_dict={entries: get_test_images})
-    ok = 0.
-    total = 0.
-    for i in range(len(outs)):
-        maxOut = np.argmax(outs[i])
-        maxTest = np.argmax(get_test_labels[i])
-        if maxOut == maxTest:
-            ok += 1.
-        total += 1.
-    print("Accuracy : %.2f%%" % ((ok * 1000 / total) / 10.0))
+        outs = sess.run(tf.sigmoid(outs), feed_dict={entries: get_test_images})
+        ok = 0.
+        total = 0.
+        for i in range(len(outs)):
+            maxOut = np.argmax(outs[i])
+            maxTest = np.argmax(get_test_labels[i])
+            if maxOut == maxTest:
+                ok += 1.
+            total += 1.
+        print("Accuracy : %.2f%%" % ((ok * 1000 / total) / 10.0))
 ok = 0.
 total = 0.
 for i in range(len(outs)):
