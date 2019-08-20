@@ -33,12 +33,12 @@ with tf.Session() as sess:
     ok = 0
     total = 0
     for i in range(len(outs)):
-    maxOut = np.argmax(outs[i])
-    maxTest = np.argmax(get_test_labels[i])
-    if maxOut == maxTest:
-        ok += 1.
-    total += 1.
-print("Accuracy : %.2f%%" % ((ok * 1000 / total) / 10.0))
+        maxOut = np.argmax(outs[i])
+        maxTest = np.argmax(get_test_labels[i])
+        if maxOut == maxTest:
+            ok += 1.
+        total += 1.
+    print("Accuracy : %.2f%%" % ((ok * 1000 / total) / 10.0))
 ok = 0.
 total = 0.
 for i in range(len(outs)):
