@@ -20,7 +20,7 @@ outs = tf.layers.dense(hidden2, 10)
 
 labels = tf.placeholder(tf.float32, [None, 10])
 loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=outs, labels=labels), axis=0)
-optimizer = tf.train.AdamOptimizer(0.002)
+optimizer = tf.train.AdamOptimizer(0.0002)
 op = optimizer.minimize(loss)
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
