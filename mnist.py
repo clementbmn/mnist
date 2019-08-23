@@ -30,7 +30,7 @@ local_init = tf.local_variables_initializer()
 with tf.Session() as sess:
     sess.run(global_init)
     sess.run(local_init)
-    for i in range(1000):
+    for i in range(5000):
         batch_xs, batch_ys = mnist.train.next_batch(100)
         loss_value = sess.run(loss, feed_dict={entries: batch_xs, labels: batch_ys})
         sess.run(optimizer, feed_dict={entries: batch_xs, labels: batch_ys})
