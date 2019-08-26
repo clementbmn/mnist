@@ -28,6 +28,7 @@ global_init = tf.global_variables_initializer()
 local_init = tf.local_variables_initializer()
 
 with tf.Session() as sess:
+    print("In session")
     sess.run(global_init)
     sess.run(local_init)
     for i in range(5000):
