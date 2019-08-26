@@ -27,7 +27,7 @@ acc, acc_op = tf.metrics.accuracy(labels=tf.argmax(true, axis=1), predictions=tf
 global_init = tf.global_variables_initializer()
 local_init = tf.local_variables_initializer()
 
-with tf.Session() as sess:
+with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
     sess.run(global_init)
     sess.run(local_init)
     for i in range(5000):
