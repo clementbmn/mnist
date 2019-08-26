@@ -37,7 +37,7 @@ with tf.Session() as sess:
         sess.run(optimizer, feed_dict={entries: batch_xs, labels: batch_ys})
         outs2 = sess.run(tf.sigmoid(outs), feed_dict={entries: mnist.test.images})
         accuracy = sess.run(acc_op, feed_dict={true: mnist.test.labels, pred: outs2})
-        if (accuracy > 0.92 and learning_rate > 0.002):
+        if (accuracy > 0.95 and learning_rate > 0.002):
             print('Inc learning rate at', i)
             learning_rate = 0.001
         if (i % 10 == 0):
